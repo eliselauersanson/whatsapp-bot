@@ -4,11 +4,9 @@ from pynput.mouse import Controller, Button
 from time import sleep
 from whatsapp_responses import response
 
-# Mouse click workaround for MAC OS
 mouse = Controller()
 
 
-# Instructions
 class WhatsApp:
 
     def __init__(self, speed=.5, click_speed=.3):
@@ -21,7 +19,7 @@ class WhatsApp:
     def nav_green_dot(self):
         try:
             # pega a notificação pelo arquivo e com confiabilidade de 70%, assim ele aceita os numeros dentro
-            position = pt.locateOnScreen('green_dot.png', confidence=.8)
+            position = pt.locateOnScreen('green_dot.PNG', confidence=.8)
             # vai até a posição do green dot
             pt.moveTo(position[0:2], duration=self.speed)
             # move o mouse para a esquerda para entrar na conversa
@@ -105,7 +103,7 @@ wa_bot = WhatsApp(speed=.5, click_speed=.4)
 sleep(2)
 c = 0
 
-while c < 2:
+while c < 1:
     wa_bot.nav_green_dot()
     wa_bot.nav_input_bot()
     wa_bot.nav_message()
